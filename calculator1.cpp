@@ -1,23 +1,36 @@
 #include <iostream>
-
 using namespace std;
-
 int main()
 {
+    int arr[100], n, temp;
 
-    int n;
-    int sum = 0;
-
-    cout << "Enter the n number for natural number for sum";
+    cout << "enter the number of elements:";
     cin >> n;
 
-    for (int i = 0; i <= n; i++)
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+
+    for (int i = 0; i < n - 1; i++)
+    {
+        for (int j = i + 1; j < n; j++)
+        {
+            if (arr[i] > arr[j])
+            {
+
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+
+    for (int i = 0; i < n; i++)
     {
 
-        sum = sum + i;
-        cout << " sum by the step" << sum << endl;
+        cout << arr[i] << "  ";
     }
-    cout << "sum of the first number of naruarl number" << sum << endl;
 
     return 0;
 }
